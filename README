@@ -1,0 +1,16 @@
+Welcome to jarsTiles source repo!
+
+All of the core source files are stored in the src folder.
+
+Make sure you read the Game Info and Specifications document
+before staring your work! You need to check out the feature
+that you are working on before committing changes, to prevent
+merge conflicts.
+
+Additional features may be added in the Feature Request text file.
+
+To compile the code, you must have either:
+
+Adobe Flex SDK (Free, will figure out the build script)
+Flash CS5 Professional (work directly from the .fla)
+Flash Builder 4 (create a new project, then copy over source files)

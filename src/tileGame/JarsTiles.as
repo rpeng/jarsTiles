@@ -1,9 +1,9 @@
-﻿package {
+﻿package tileGame{
 	import flash.display.MovieClip;
 	
-	public class jarsTiles extends MovieClip {
+	public class JarsTiles extends MovieClip {
 		
-		public function jarsTiles() {
+		public function JarsTiles() {
 			// constructor code
 			trace("jarsTiles v0.1");
 		}

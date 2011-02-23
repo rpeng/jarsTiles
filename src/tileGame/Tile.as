@@ -1,27 +1,26 @@
 ﻿package tileGame {
 	/*
 	The Tile class represents one tile on the tile grid.
-	Tiles are numbered in a linear fasion, for example on a
+	Tiles are numbered in a matrix fasion, for example on a
 	3 x 3 grid:
-	 _________
-	| 1| 2 | 3|
-	|--|---|--|
-	| 4| 5 | 6|
-	|--|---|--|
-	| 7| 8 | 9|
-	|---------|
+	 ______________________
+	| (0,0)| (0,1) | (0,2)|
+	|------|-------|------|
+	| (1,0)| (1,1) | (1,2)|
+	|------|-------|------|
+	| (2,0)| (2,1) | (2,2)|
+	|---------------------|
 	
 	Properties:
 	
-	playerName	- name of player
-	playerID	- unique number identification
-	gridPos		- player's position on the TileGrid
+	isAlive		- Is the tile still floating
+	tileNo		- Point of tile, based on above enumeration method
 	
 	*/
 	public class Tile {
 		
 		var isAlive:Boolean;
-		var tileNo:uint;
+		var tileNo:Point;
 		
 		public function Tile() {
 			// constructor code

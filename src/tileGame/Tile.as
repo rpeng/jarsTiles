@@ -18,11 +18,14 @@
 					(2) if tile is dying
 					(0) if tile is dead
 					
-	tileNo		- Point of tile, based on above enumeration method
+	tilePos 			- Point of tile, based on above enumeration method
+	
+	tileDeathTime		- The time that tile.die() was first called
+	tileDeathDuration	- How long (in ms) before tile will drop
 	
 	Methods:
 	
-	die(_gtime:Time)	- Tile dies after _gtime
+	die(_dTime:Number)	- Tile dies after _gtime milliseconds
 	
 	
 	*/
@@ -36,13 +39,42 @@
 		
 		// properties
 		var tileStatus:Boolean;
-		var tileNo:Point;
-		var isDying:Boolean;
+		var tilePos:Point; 
 		
-		public function Tile() {
-			// constructor code
+		var tileDeathTime:Date;
+		var tileDeathDuration:Number;
+		
+		public function Tile(_pos:Point) {
+			tilePos = _pos;
 		}
-
+		
+		public function setStatus(_status:uint){
+			if (_status >= 0 && _status <= 2)
+				tileStatus = _status;
+			else
+				trace("Invalid status :"+String(_status)+"set!");
+		}
+		
+		public function getStatus(){
+			if (tileStatus == STATE_DYING){
+				// if tile is dying, check for death
+				var currentTime:Date = new Date();
+				if (currentTime.time() - tileDeathTime.time() >= tileDeathDuration)
+					this.setStatus(STATE_DEAD);
+					// tile is dead. may play some kind of dying animation here?
+			}
+			return this.tileStatus;
+		}
+		
+		public function die(_dTime:Number)
+		{	// this will kill the tile after _gTime ms, if tile is alive
+			if (this.getStatus() == STATE_ALIVE){
+				tileDeathTime = new Date();
+				tileDeathDuration = _dTime;
+				this.setStatus(STATE_DYING);
+			}
+		}
+		
 	}
 	
 }

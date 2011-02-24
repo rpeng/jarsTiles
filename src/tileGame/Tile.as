@@ -56,6 +56,7 @@
 		}
 		
 		public function getStatus(){
+			// getStatus also updates the status
 			if (tileStatus == STATE_DYING){
 				// if tile is dying, check for death
 				var currentTime:Date = new Date();

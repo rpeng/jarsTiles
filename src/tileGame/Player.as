@@ -18,9 +18,10 @@
 		
 		var playerName:String; // what we will call the player
 		var playerID:uint;      // unique identification of player
+		
 		var gridPos:Point;	   // position on the tilegrid
 		
-		internal function Player(_playerName = "default") {
+		public function Player(_playerName = "default") {
 			this.playerName = _playerName;
 			this.playerID = numPlayers; // will change this 
 										// when we add networking support

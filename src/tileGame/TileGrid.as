@@ -60,6 +60,7 @@
 		
 		var tileArray:Array;
 		
+		// Accessors
 		public function getGridWidth():Number{
 			return gridWidth;
 		}
@@ -74,6 +75,14 @@
 		
 		public function getTileHeight():Number{
 			return tileHeight;
+		}
+		
+		public function getNumRows():Number{
+			return numTileRows;
+		}
+		
+		public function getNumCols():Number{
+			return numTileCols;
 		}
 		
 		public function gridResize(_gWidth:Number, _gHeight:Number){
@@ -99,7 +108,6 @@
 				tileArray.push(rowArray);
 			}
 		}
-
 	}
 	
 }

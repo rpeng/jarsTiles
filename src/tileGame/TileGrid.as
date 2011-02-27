@@ -85,6 +85,21 @@
 			return numTileCols;
 		}
 		
+		public function getTileRowCol(p:Point):Tile{
+			return tileArray[p.x][p.y];
+		}
+		
+		public function getTileXY(p:Point):Tile{
+			// This resolves the cord points into row and columns
+			var pPoint:Point =  new Point(
+										  Math.floor(p.x / tileWidth),
+										  Math.floor(p.y / tileHeight));
+			return getTileRowCol(pPoint);
+			
+		}
+		
+
+		
 		public function gridResize(_gWidth:Number, _gHeight:Number){
 			gridWidth = _gWidth;
 			gridHeight = _gHeight;

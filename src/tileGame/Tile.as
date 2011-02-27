@@ -29,6 +29,8 @@
 	
 	
 	*/
+	import flash.geom.Point;
+
 	public class Tile {
 		/*
 		Status states
@@ -38,18 +40,19 @@
 		public const STATE_DEAD = 0;
 		
 		// properties
-		var tileStatus:Boolean;
+		var tileStatus:uint;
 		var tilePos:Point; 
 		
 		var tileDeathTime:Date;
 		var tileDeathDuration:Number;
 		
 		public function Tile(_pos:Point) {
+			tileStatus = STATE_ALIVE;
 			tilePos = _pos;
 		}
 		
 		public function setStatus(_status:uint){
-			if (_status >= 0 && _status <= 2)
+			if ((_status >= 0) && (_status <= 2))
 				tileStatus = _status;
 			else
 				trace("Invalid status :"+String(_status)+"set!");

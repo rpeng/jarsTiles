@@ -98,7 +98,6 @@
 			
 		}
 		
-
 		
 		public function gridResize(_gWidth:Number, _gHeight:Number){
 			gridWidth = _gWidth;
@@ -111,14 +110,15 @@
 								 _gHeight:Number,
 								 _numRow:Number,
 								 _numCol:Number) {
-
+			tileArray = new Array; // initialize the tile array
 			numTileRows = _numRow;
 			numTileCols = _numCol;
 			gridResize(_gWidth,_gHeight);
-			for(i = 0; i < numTileRows; i++){
-				var rowArray:Array; // every row contains an array
-				for(j = 0; j < numTileCols; j++){ // need to populate array with empty tiles
-					rowArray.push(new Tile(new Point(i,j)));
+			for(var i = 0; i < numTileRows; i++){
+				var rowArray:Array = new Array(); // every row contains an array
+				for(var j = 0; j < numTileCols; j++){ // need to populate array with empty tiles
+					var _tile = new Tile(new Point(i,j));
+					rowArray.push(_tile);
 				}
 				tileArray.push(rowArray);
 			}

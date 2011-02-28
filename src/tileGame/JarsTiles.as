@@ -6,6 +6,12 @@
 		// Testing script
 		public function JarsTiles() {
 			trace("jarsTiles v0.1");
+			// First we test that our assets were imported correctly
+			
+			var greenTile = new tile();
+			this.addChild(greenTile);
+			// A green tile should appear
+			
 			trace("Creating grid of size 100 x 100 px, with 5 rows and 5 cols of tiles");
 			var grid = new TileGrid(100,100,5,5);
 			// make a new grid of 100 x 100 px, with 5 rows and 5 cols of tiles.

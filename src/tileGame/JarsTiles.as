@@ -8,8 +8,8 @@
 			trace("jarsTiles v0.1");
 			// First we test that our assets were imported correctly
 			
-			var greenTile = new tile();
-			this.addChild(greenTile);
+			var tile = new gTile();
+			this.addChild(tile);
 			// A green tile should appear
 			
 			trace("Creating grid of size 100 x 100 px, with 5 rows and 5 cols of tiles");
@@ -28,6 +28,7 @@
 			// (0,19) => (0,0)
 			// (21,21) => (1,1)
 			// (81,45) => (4,2)
+			// (35, 29) => (1,1)
 			// can add more test cases...
 			var p:Array = new Array(new Point(0,19),
 									new Point(21,21),

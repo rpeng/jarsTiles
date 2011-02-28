@@ -15,7 +15,5 @@
 		public function Painter() {
 			// constructor code
 		}
-
 	}
-	
 }

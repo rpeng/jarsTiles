@@ -25,10 +25,12 @@
 			// can add more test cases...
 			var p:Array = new Array(new Point(0,19),
 									new Point(21,21),
-									new Point(81,45));
+									new Point(81,45),
+									new Point(35,29));
 			
 			for (var i = 0; i < p.length; i++)
 				trace ("Point: "+p[i]+" => maps to tile: "+grid.getTileXY(p[i]).tilePos);
+			
 		}
 	}
 	

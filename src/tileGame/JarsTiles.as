@@ -8,7 +8,7 @@
 			trace("jarsTiles v0.1");
 			// First we test that our assets were imported correctly
 			
-			var tile = new gTile();
+			var tile = new greenTile();
 			this.addChild(tile);
 			// A green tile should appear
 			

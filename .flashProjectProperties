@@ -1,0 +1,26 @@
+<projectDescription>
+  <id>1307156948769</id>
+  <name>jarsTiles</name>
+  <asVersion>0</asVersion>
+  <boundTemplate>file:///C|/Users/Richy/AppData/Local/Adobe/Flash CS5/en_US/Configuration/ActionScript 3.0/Templates/boundClass_as3.as</boundTemplate>
+  <classTemplate>file:///C|/Users/Richy/AppData/Local/Adobe/Flash CS5/en_US/Configuration/ActionScript 3.0/Templates/standardClass_as3.as</classTemplate>
+  <classPath>.</classPath>
+  <defaultApp>file:///D|/Projects/jarsTiles/tilesMain.fla</defaultApp>
+  <rootURI>file:///D|/Projects/jarsTiles/</rootURI>
+  <flexSDK/>
+  <sources editable="false"/>
+  <libraries editable="false"/>
+  <externalLibraries editable="false"/>
+  <compileList editable="false"/>
+  <recentFiles editable="false">
+    <uri label="JarsTiles.as">file:///D|/Projects/jarsTiles/src/tileGame/JarsTiles.as</uri>
+    <uri label="TileGrid.as">file:///D|/Projects/jarsTiles/src/tileGame/TileGrid.as</uri>
+    <uri label="Tile.as">file:///D|/Projects/jarsTiles/src/tileGame/Tile.as</uri>
+    <uri label="Player.as">file:///D|/Projects/jarsTiles/src/tileGame/Player.as</uri>
+    <uri label="Painter.as">file:///D|/Projects/jarsTiles/src/tileGame/Painter.as</uri>
+    <uri label="Paintable.as">file:///D|/Projects/jarsTiles/src/tileGame/Paintable.as</uri>
+    <uri label="Engine.as">file:///D|/Projects/jarsTiles/src/tileGame/Engine.as</uri>
+    <uri label="tilesMain.fla">file:///D|/Projects/jarsTiles/tilesMain.fla</uri>
+  </recentFiles>
+  <locations editable="false"/>
+</projectDescription>

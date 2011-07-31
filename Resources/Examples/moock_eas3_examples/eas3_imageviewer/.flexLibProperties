@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="take1port.ImageViewer"/>
+    <classEntry path="take1rewrite.ImageViewer"/>
+    <classEntry path="take2.ImageViewer"/>
+    <classEntry path="take3.ImageViewer"/>
+    <classEntry path="take4.DragManager"/>
+    <classEntry path="take4.ImageViewer"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

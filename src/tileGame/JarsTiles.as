@@ -8,12 +8,14 @@
 			trace("jarsTiles v0.1");
 			// First we test that our assets were imported correctly
 			
-			var tile = new greenTile();
-			this.addChild(tile);
+			//var tile = new greenTile(); // need to eventually externalize this
+			//this.addChild(tile);
+
 			// A green tile should appear
 			
 			trace("Creating grid of size 100 x 100 px, with 5 rows and 5 cols of tiles");
-			var grid = new TileGrid(100,100,5,5);
+			var grid = new TileGrid(200,200,5,5);
+			
 			// make a new grid of 100 x 100 px, with 5 rows and 5 cols of tiles.
 			// Expect each tile to have width and height of 20
 			
@@ -34,10 +36,11 @@
 									new Point(21,21),
 									new Point(81,45),
 									new Point(35,29));
-			
+			 
 			for (var i = 0; i < p.length; i++)
 				trace ("Point: "+p[i]+" => maps to tile: "+grid.getTileXY(p[i]).tilePos);
 			
+			this.addChild(grid.gridClip);
 		}
 	}
 	

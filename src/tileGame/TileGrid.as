@@ -1,4 +1,4 @@
-﻿package tileGame{
+﻿package tileGame {
 	import flash.geom.Point;
 
 	/*
@@ -47,7 +47,11 @@
 	
 	
 	*/
+	import flash.display.MovieClip;
+	
 	public class TileGrid {
+		
+		var gridClip:MovieClip; // clip that will hold the grid
 		
 		var gridWidth:Number;
 		var gridHeight:Number;
@@ -95,10 +99,13 @@
 										  Math.floor(p.x / tileWidth),
 										  Math.floor(p.y / tileHeight));
 			return getTileRowCol(pPoint);
-			
 		}
 		
-		
+		public function update() { // updates the physical Moveclip
+			gridClip.width = gridWidth;
+			gridClip.height = gridHeight;
+		}
+		 
 		public function gridResize(_gWidth:Number, _gHeight:Number){
 			gridWidth = _gWidth;
 			gridHeight = _gHeight;
@@ -106,21 +113,41 @@
 			tileHeight = gridHeight/numTileRows;
 		}
 		
+		public function Render(xpos:int,ypos:int) {
+			// TODO
+		}
+		
 		public function TileGrid(_gWidth:Number,
 								 _gHeight:Number,
 								 _numRow:Number,
 								 _numCol:Number) {
-			tileArray = new Array; // initialize the tile array
+			
+			gridClip = new MovieClip();
+			tileArray = new Array(); // initialize the tile array
 			numTileRows = _numRow;
 			numTileCols = _numCol;
 			gridResize(_gWidth,_gHeight);
+			
+			var tilex:int = 0; // relative tile paths
+			var tiley:int = 0;			
 			for(var i = 0; i < numTileRows; i++){
 				var rowArray:Array = new Array(); // every row contains an array
+				
+				tilex = 0; // reset xcord
 				for(var j = 0; j < numTileCols; j++){ // need to populate array with empty tiles
+					trace("created tile on ("+i+","+j+")");
 					var _tile = new Tile(new Point(i,j));
+
+					_tile.resize(this.tileWidth,this.tileHeight);
+					_tile.setXY(tilex,tiley);
+
+					tilex += this.tileWidth;
+					 
 					rowArray.push(_tile);
+					gridClip.addChild(_tile.tileClip);
 				}
 				tileArray.push(rowArray);
+				tiley += this.tileHeight;
 			}
 		}
 	}

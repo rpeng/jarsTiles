@@ -30,8 +30,9 @@
 	
 	*/
 	import flash.geom.Point;
+	import flash.display.MovieClip; // need to abstract this abit more
 
-	public class Tile {
+	public class Tile{
 		/*
 		Status states
 		*/
@@ -40,6 +41,7 @@
 		public const STATE_DEAD = 0;
 		
 		// properties
+		var tileClip:MovieClip;
 		var tileStatus:uint;
 		var tilePos:Point; 
 		
@@ -49,6 +51,17 @@
 		public function Tile(_pos:Point) {
 			tileStatus = STATE_ALIVE;
 			tilePos = _pos;
+			tileCl ip = new greenTile();
+		}
+		
+		public function resize(t_width:int,t_height:int) {
+			tileClip.width = t_width;
+			tileClip.height = t_height;
+		}
+		
+		public function setXY (_x:int,_y:int) {
+			tileClip.x = _x;
+			tileClip.y = _y;
 		}
 		
 		public function setStatus(_status:uint){
@@ -56,6 +69,10 @@
 				tileStatus = _status;
 			else
 				trace("Invalid status :"+String(_status)+"set!");
+		}
+		
+		public function Selected(){
+			tileClip.gotoAndStop("Selected");
 		}
 		
 		public function getStatus(){

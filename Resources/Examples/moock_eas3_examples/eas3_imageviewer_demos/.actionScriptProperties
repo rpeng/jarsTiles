@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties version="1" mainApplicationPath="Take1PortDemo.as">
+  <compiler copyDependentFiles="true" generateAccessible="false" strict="true" warn="true" htmlGenerate="false" htmlPlayerVersionCheck="true" htmlPlayerVersion="9.0.0" htmlExpressInstall="true" htmlHistoryManagement="true" outputFolderPath="bin" sourceFolderPath="src">
+    <compilerSourcePath/>
+    <libraryPath>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/playerglobal.swc" linkType="2"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/utilities.swc" linkType="1"/>
+      <libraryPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" linkType="1" sourcepath="${FRAMEWORKS}/source"/>
+      <libraryPathEntry kind="3" path="/eas3_imageviewer/bin/eas3_imageviewer.swc" linkType="1" sourcepath="/eas3_imageviewer/src"/>
+    </libraryPath>
+    <sourceAttachmentPath>
+      <sourceAttachmentPathEntry kind="3" path="${FRAMEWORKS}/libs/flex.swc" sourcepath="${FRAMEWORKS}/source"/>
+      <sourceAttachmentPathEntry kind="3" path="/eas3_imageviewer/bin/eas3_imageviewer.swc" sourcepath="/eas3_imageviewer/src"/>
+    </sourceAttachmentPath>
+  </compiler>
+  <applications>
+    <application path="Take1PortDemo.as"/>
+    <application path="Take2Demo.as"/>
+    <application path="Take4Demo.as"/>
+    <application path="Take3Demo.as"/>
+    <application path="Take1RewriteDemo.as"/>
+  </applications>
+</actionScriptProperties>

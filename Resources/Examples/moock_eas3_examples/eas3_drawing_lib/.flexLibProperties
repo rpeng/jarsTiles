@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flexLibProperties version="1">
+  <includeClasses>
+    <classEntry path="org.moock.drawing.BasicShape"/>
+    <classEntry path="org.moock.drawing.Ellipse"/>
+    <classEntry path="org.moock.drawing.Polygon"/>
+    <classEntry path="org.moock.drawing.Rectangle"/>
+    <classEntry path="org.moock.drawing.RectangleV1"/>
+    <classEntry path="org.moock.drawing.Star"/>
+  </includeClasses>
+  <includeResources/>
+  <namespaceManifests/>
+</flexLibProperties>

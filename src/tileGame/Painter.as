@@ -30,11 +30,7 @@
 	*/
 	public class Painter {
 		
-		public var gridClip:Class;
-		public var tileClip:Class;
-		public var playerClip:Class;
-		
-		public function renderGrid(_pArray:Array, _tArray:Array)
+		public function renderGrid(grid:TileGrid)
 		{
 			// will implement later
 		}

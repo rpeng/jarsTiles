@@ -51,7 +51,7 @@
 		public function Tile(_pos:Point) {
 			tileStatus = STATE_ALIVE;
 			tilePos = _pos;
-			tileCl ip = new greenTile();
+			tileClip = new greenTile();
 		}
 		
 		public function resize(t_width:int,t_height:int) {

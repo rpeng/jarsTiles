@@ -129,7 +129,7 @@
 			gridResize(_gWidth,_gHeight);
 			
 			var tilex:int = 0; // relative tile paths
-			var tiley:int = 0;			
+			var tiley:int = 0;
 			for(var i = 0; i < numTileRows; i++){
 				var rowArray:Array = new Array(); // every row contains an array
 				

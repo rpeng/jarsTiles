@@ -30,7 +30,15 @@
 	
 	*/
 	import flash.geom.Point;
-	import flash.display.MovieClip; // need to abstract this abit more
+	import flash.display.MovieClip;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
+	import flash.text.TextField;
+	import flash.text.TextFormat;
+	import flash.text.TextFieldAutoSize;
+	import flash.events.Event;
+
+ // need to abstract this abit more
 
 	public class Tile{
 		/*
@@ -42,11 +50,14 @@
 		
 		// properties
 		var tileClip:MovieClip;
-		var tileStatus:uint;
+		var tileStatus:int;
 		var tilePos:Point; 
 		
-		var tileDeathTime:Date;
+		var tileDeathTime:Number;
 		var tileDeathDuration:Number;
+		
+		var deathTimer:Timer;
+		var deathText:TextField;
 		
 		public function Tile(_pos:Point) {
 			tileStatus = STATE_ALIVE;
@@ -76,23 +87,51 @@
 		}
 		
 		public function getStatus(){
-			// getStatus also updates the status
-			if (tileStatus == STATE_DYING){
-				// if tile is dying, check for death
-				var currentTime:Date = new Date();
-				if (currentTime.time() - tileDeathTime.time() >= tileDeathDuration)
-					this.setStatus(STATE_DEAD);
-					// tile is dead. may play some kind of dying animation here?
-			}
 			return this.tileStatus;
+		}
+		
+		public function deathFrameHandler(e:Event){ // updates text on frame
+			if (this.deathText != null) { // simply draws the time till death
+				this.deathText.text = String((tileDeathDuration-(new Date().time - this.tileDeathTime))/1000)
+			}
+		}
+		
+		public function deathHandler(e:TimerEvent){
+			this.setStatus(STATE_DEAD);
+			trace(tilePos+" dead")
+			this.tileClip.gotoAndPlay("Dead");
+			this.tileClip.removeEventListener(Event.ENTER_FRAME,this.deathFrameHandler);
+			deathTimer.removeEventListener(TimerEvent.TIMER,this.deathHandler);
+			deathTimer.stop(); // no more need for this
 		}
 		
 		public function die(_dTime:Number)
 		{	// this will kill the tile after _gTime ms, if tile is alive
 			if (this.getStatus() == STATE_ALIVE){
-				tileDeathTime = new Date();
+				trace(tilePos+" dying")
+
+				tileDeathTime = new Date().time;
+				trace(tileDeathTime);
 				tileDeathDuration = _dTime;
+				
+				// set state and clip
 				this.setStatus(STATE_DYING);
+				this.tileClip.gotoAndPlay("Dying");
+		
+				// set up timer
+				
+				this.deathTimer = new Timer(_dTime);
+				var secondTimer:Timer = new Timer(1000);
+				
+				deathTimer.start();
+				deathTimer.addEventListener(TimerEvent.TIMER,this.deathHandler);
+				
+				// show death text
+				deathText = new TextField();
+				deathText.defaultTextFormat = new TextFormat(null,40);				
+				deathText.text = String(deathTimer.currentCount);
+				this.tileClip.addEventListener(Event.ENTER_FRAME,this.deathFrameHandler);
+				this.tileClip.addChild(deathText);
 			}
 		}
 		

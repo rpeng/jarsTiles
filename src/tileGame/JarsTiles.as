@@ -1,9 +1,21 @@
 ﻿package tileGame{
 	import flash.display.MovieClip;
 	import flash.geom.Point;
+	import flash.events.Event;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 	
 	public class JarsTiles extends MovieClip {
 		// Testing script
+		public var grid:TileGrid;
+		
+		public function randomDeathHandler(e:TimerEvent) {
+			var p_x:int = Math.round(Math.random()*grid.numTileRows);
+			var p_y:int = Math.round(Math.random()*grid.numTileCols);
+			var deathTimer:int = Math.round(Math.random()*10000+1000);
+			grid.getTileRowCol(new Point(p_x,p_y)).die(deathTimer)
+		}
+		
 		public function JarsTiles() {
 			trace("jarsTiles v0.1");
 			// First we test that our assets were imported correctly
@@ -14,7 +26,7 @@
 			// A green tile should appear
 			
 			trace("Creating grid of size 100 x 100 px, with 5 rows and 5 cols of tiles");
-			var grid = new TileGrid(200,200,5,5);
+			grid = new TileGrid(300,300,5,5);
 			
 			// make a new grid of 100 x 100 px, with 5 rows and 5 cols of tiles.
 			// Expect each tile to have width and height of 20
@@ -43,6 +55,11 @@
 			grid.gridClip.x = 100;
 			grid.gridClip.y = 100; 
 			this.addChild(grid.gridClip);
+			grid.getTileRowCol(new Point(2,3)).die(5000);
+			
+			var randomDeathTimer:Timer = new Timer(1000);
+			randomDeathTimer.start();
+			randomDeathTimer.addEventListener(TimerEvent.TIMER,this.randomDeathHandler);
 		}
 	}
 	

@@ -13,9 +13,9 @@
   <externalLibraries editable="false"/>
   <compileList editable="false"/>
   <recentFiles editable="false">
-    <uri label="JarsTiles.as">file:///D|/Projects/jarsTiles/src/tileGame/JarsTiles.as</uri>
     <uri label="TileGrid.as">file:///D|/Projects/jarsTiles/src/tileGame/TileGrid.as</uri>
     <uri label="Tile.as">file:///D|/Projects/jarsTiles/src/tileGame/Tile.as</uri>
+    <uri label="JarsTiles.as">file:///D|/Projects/jarsTiles/src/tileGame/JarsTiles.as</uri>
     <uri label="Player.as">file:///D|/Projects/jarsTiles/src/tileGame/Player.as</uri>
     <uri label="Painter.as">file:///D|/Projects/jarsTiles/src/tileGame/Painter.as</uri>
     <uri label="Paintable.as">file:///D|/Projects/jarsTiles/src/tileGame/Paintable.as</uri>

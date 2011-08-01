@@ -111,7 +111,6 @@
 				trace(tilePos+" dying")
 
 				tileDeathTime = new Date().time;
-				trace(tileDeathTime);
 				tileDeathDuration = _dTime;
 				
 				// set state and clip

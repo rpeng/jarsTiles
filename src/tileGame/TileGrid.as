@@ -113,8 +113,12 @@
 			tileHeight = gridHeight/numTileRows;
 		}
 		
-		public function Render(xpos:int,ypos:int) {
-			// TODO
+		public function get mc():MovieClip{
+			return gridClip;
+		}
+		
+		public function get addChild(){ // so you can call grid.addChild()
+			return mc.addChild;
 		}
 		
 		public function TileGrid(_gWidth:Number,

@@ -38,7 +38,7 @@
 		*/
 		public const STATE_ALIVE = 1;
 		public const STATE_DYING = 2;
-		public const STATE_DEAD = 0;
+		public const STATE_DEAD = 0; 
 		
 		// properties
 		var tileClip:MovieClip;

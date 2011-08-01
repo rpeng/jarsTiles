@@ -44,9 +44,9 @@
 		/*
 		Status states
 		*/
-		public const STATE_ALIVE = 1;
-		public const STATE_DYING = 2;
-		public const STATE_DEAD = 0; 
+		public static const STATE_ALIVE = 1;
+		public static const STATE_DYING = 2;
+		public static const STATE_DEAD = 0; 
 		
 		// properties
 		var tileClip:MovieClip;
@@ -98,9 +98,13 @@
 		
 		public function deathHandler(e:TimerEvent){
 			this.setStatus(STATE_DEAD);
-			trace(tilePos+" dead")
+			//trace(tilePos+" dead")
 			this.tileClip.gotoAndPlay("Dead");
+			
 			this.tileClip.removeEventListener(Event.ENTER_FRAME,this.deathFrameHandler);
+			this.tileClip.removeChild(deathText);
+			deathText = null;
+			
 			deathTimer.removeEventListener(TimerEvent.TIMER,this.deathHandler);
 			deathTimer.stop(); // no more need for this
 		}
@@ -108,7 +112,7 @@
 		public function die(_dTime:Number)
 		{	// this will kill the tile after _gTime ms, if tile is alive
 			if (this.getStatus() == STATE_ALIVE){
-				trace(tilePos+" dying")
+				//trace(tilePos+" dying")
 
 				tileDeathTime = new Date().time;
 				tileDeathDuration = _dTime;
@@ -127,6 +131,7 @@
 				
 				// show death text
 				deathText = new TextField();
+				deathText.selectable = false;
 				deathText.defaultTextFormat = new TextFormat(null,40);				
 				deathText.text = String(deathTimer.currentCount);
 				this.tileClip.addEventListener(Event.ENTER_FRAME,this.deathFrameHandler);

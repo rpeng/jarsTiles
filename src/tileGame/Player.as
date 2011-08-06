@@ -27,6 +27,9 @@
 		
 		var movieClip:MovieClip; 
 		
+		var velocity:Point;
+		var friction:Number;
+		
 		public function get mc():MovieClip{
 			return this.movieClip;
 		}
@@ -42,19 +45,19 @@
 		
 		// movement handlers
 		public function moveRight(){
-			movieClip.x += 4;
+			this.velocity.x += 2;
 		}
 		
 		public function moveLeft(){
-			movieClip.x -= 4;
+			this.velocity.x -= 2;
 		}
 		
 		public function moveDown(){
-			movieClip.y += 4;
+			this.velocity.y += 2;
 		}
 		
 		public function moveUp(){
-			movieClip.y -= 4;
+			this.velocity.y -= 2;
 		}
 		
 		public function frameEventHandler(caller:Engine,keys:KeyObject){
@@ -68,24 +71,38 @@
 				moveUp();
 			else if (keys.isDown(Keyboard.DOWN))
 				moveDown();
-				
-			// nonvelocity
 			
-			if (movieClip.x > caller.gameGrid.gridWidth)
+			movieClip.x += velocity.x;
+			movieClip.y += velocity.y;
+			
+			if (movieClip.x > caller.gameGrid.gridWidth){
 				movieClip.x = caller.gameGrid.gridWidth;
-			else if (movieClip.x < 0)
+				velocity.x = -velocity.x;
+			}
+			else if (movieClip.x < 0){
 				movieClip.x = 0;
+				velocity.x = -velocity.x;
+			}
 				
-			if (movieClip.y > caller.gameGrid.gridHeight)
+			if (movieClip.y > caller.gameGrid.gridHeight){
 				movieClip.y = caller.gameGrid.gridHeight;
-			else if (movieClip.y < 0)
+				velocity.y = -velocity.y;
+			}
+			else if (movieClip.y < 0){
 				movieClip.y = 0;
+				velocity.y = -velocity.y;
+			}
+			
+			velocity.x *= friction;
+			velocity.y *= friction;
 		}
 		
 		public function Player(_playerName,_clip:MovieClip) {
 			this.playerName = _playerName;
 			// this.playerid = ??
 			this.movieClip = _clip;
+			velocity = new Point(0,0);
+			friction = 0.84;
 			trace("Player "+this.playerName+" created!");
 		}
 	}

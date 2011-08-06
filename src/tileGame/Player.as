@@ -68,6 +68,8 @@
 				moveUp();
 			else if (keys.isDown(Keyboard.DOWN))
 				moveDown();
+				
+			// nonvelocity
 			
 			if (movieClip.x > caller.gameGrid.gridWidth)
 				movieClip.x = caller.gameGrid.gridWidth;

@@ -82,7 +82,7 @@
 				movieClip.y = 0;
 		}
 		
-		public function Player(_playerName,_clip:MovieClip) {
+		public function Player(_playerName:String,_clip:MovieClip) {
 			this.playerName = _playerName;
 			// this.playerid = ??
 			this.movieClip = _clip;

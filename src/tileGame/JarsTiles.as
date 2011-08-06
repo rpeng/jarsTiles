@@ -13,8 +13,9 @@
 		var app:Engine;
 		
 		public function debugEventHandler(e:Event){
-			var tilePos:Tile = app.grid.getTileXY(new Point(app.player.x,app.player.y))
-			debugText.text = tilePos.tilePos.toString();
+			var tilePos:Tile = app.grid.getTileXY(new Point(app.player.pos.x,app.player.pos.y))
+			var underPlayer:Tile = app.getTileUnderPlayer()
+			debugText.text = tilePos.tilePos.toString()+"\n"+underPlayer.tilePos.toString();
 		}
 		
 		public function JarsTiles() {
@@ -24,7 +25,7 @@
 			debugText = new TextField;
 			debugTextFormat = new TextFormat;
 			
-			debugTextFormat.size = 30;
+			debugTextFormat.size = 10;
 			
 			app = new Engine(this);
 					

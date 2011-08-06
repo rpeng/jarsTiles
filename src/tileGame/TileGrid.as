@@ -96,8 +96,8 @@
 		public function getTileXY(p:Point):Tile{
 			// This resolves the cord points into row and columns
 			var pPoint:Point =  new Point(
-										  Math.floor(p.x / tileWidth),
-										  Math.floor(p.y / tileHeight));
+										  Math.floor(p.y / tileWidth),
+										  Math.floor(p.x / tileHeight));
 			return getTileRowCol(pPoint);
 		}
 		
@@ -140,7 +140,7 @@
 				tilex = 0; // reset xcord
 				for(var j = 0; j < numTileCols; j++){ // need to populate array with empty tiles
 					trace("created tile on ("+i+","+j+")");
-					var _tile = new Tile(new Point(i,j));
+					var _tile = new Tile(new Point(j,i));
 
 					_tile.resize(this.tileWidth,this.tileHeight);
 					_tile.setXY(tilex,tiley);

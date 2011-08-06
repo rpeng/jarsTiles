@@ -10,6 +10,7 @@
 	import flash.events.KeyboardEvent;
 	import flash.display.Stage;
 	
+	import tileGame.Player;
 	import tileGame.Tile;
 	import tileGame.Constants;
 	import tileGame.TileGrid;
@@ -21,7 +22,8 @@
 		internal var mainRef:MovieClip;
 		internal var gameGrid:TileGrid;
 		internal var players:Array;
-		internal var mainPlayer:MovieClip;
+		
+		internal var mainPlayer:Player;
 		
 		internal var keys:KeyObject;
 		
@@ -31,12 +33,12 @@
 			return gameGrid;
 		}
 		
-		public function get player():MovieClip{ // testing method #2
+		public function get player():Player{ // testing method #2
 			return mainPlayer;
 		}
 		
 		public function getTileUnderPlayer():Tile{
-			var tile:Tile = gameGrid.getTileXY(new Point(mainPlayer.y,mainPlayer.x));
+			var tile:Tile = gameGrid.getTileXY(new Point(mainPlayer.pos.x,mainPlayer.pos.y));
 			return tile;
 		}
 		
@@ -69,31 +71,8 @@
 				Constants.GRID_DEFAULT_COLS);
 			
 			// players
-			mainPlayer = new playerPic();
-			mainPlayer.width = gameGrid.tileWidth;
-			mainPlayer.height = gameGrid.tileHeight;
-		}
-		
-		public function keyHandler(){
-			if (keys.isDown(Keyboard.LEFT))
-				mainPlayer.x -= 4;
-			else if (keys.isDown(Keyboard.RIGHT))
-				mainPlayer.x += 4;
- 
-			if (keys.isDown(Keyboard.UP))
-				mainPlayer.y -= 4;
-			else if (keys.isDown(Keyboard.DOWN))
-				mainPlayer.y += 4;
-			
-			if (mainPlayer.x > gameGrid.gridWidth)
-				mainPlayer.x = gameGrid.gridWidth;
-			else if (mainPlayer.x < 0)
-				mainPlayer.x = 0;
-				
-			if (mainPlayer.y > gameGrid.gridHeight)
-				mainPlayer.y = gameGrid.gridHeight;
-			else if (mainPlayer.y < 0)
-				mainPlayer.y = 0;
+			mainPlayer = new Player("default",new playerPic());
+			mainPlayer.resize(gameGrid.tileWidth,gameGrid.tileHeight);
 		}
 		
 		public function gameover(){
@@ -104,7 +83,7 @@
 		}
 		
 		public function frameEventHandler(e:Event){ // main logic
-			this.keyHandler();
+			mainPlayer.frameEventHandler(this,keys);
 			//trace(getTileUnderPlayer().tilePos);
 			if (getTileUnderPlayer().getStatus() == Tile.STATE_DEAD){
 				// game over
@@ -117,7 +96,7 @@
 			this.init(); 
 			mainRef = _mainRef;
 			mainRef.addChild(gameGrid.mc);
-			gameGrid.addChild(mainPlayer);
+			gameGrid.addChild(mainPlayer.mc);
 			trace("added keyvent hanlder");
 			// keyboard
 			
